@@ -1,44 +1,242 @@
-body {
-  background: #f7f7f7;
+/* RESET */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-.container {
-  width: 400px;
-  margin: 50px auto;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+html {
+  scroll-behavior: smooth;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+:root {
+  --bg: #f5f1ff;
+  --card: #ffffff;
+  --muted: #756c85;
+  --accent: #7b3fe4;
+  --active: #ffffff;
+  --gold: #d4af37;
+  --glass: rgba(255,255,255,0.2);
+  scroll-padding-top: 120px; /* prevents navbar overlap */
 }
 
-.form input {
+body {
+  background: var(--bg);
+}
+
+/* DARK MODE */
+.dark {
+  background: #140c22;
+  color: #e6d9ff;
+}
+
+/* ⭐ FLOATING GLASS NAVBAR */
+.navbar {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+  height: 70px;  /* you can adjust */
+  padding: 0 40px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+    background: rgba(0, 92, 157, 0.35);
+    backdrop-filter: blur(12px);
+  
+  
+  
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  background: #0077ff;
+.dark .navbar {
+  background: rgba(30, 20, 50, 0.3);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.nav-links a {
+  margin: 0 15px;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
   color: white;
-  font-size: 18px;
+}
+
+.nav-links a.active {
+  color: gold;
+  font-weight: 600;
+}
+
+/* underline animation */
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: gold;
+  border-radius: 3px;
+}
+
+.theme-btn {
+  background: white;
   border: none;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 14px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #005fcc;
+/* HERO */
+/* FULL SCREEN HERO */
+.hero {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  background: url("https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg")
+    center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 14px;
+}
+
+.gold-text {
+  color: #d4af37;
+}
+
+
+/* SECTION */
+.section {
+  padding: 60px 80px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/* ROOM CARDS */
+.room-container {
+  display: flex;
+  gap: 0;
+  margin-top: 0;
+}
+
+.room-card {
+  width: 50%;
+}
+
+/* PREMIUM CARD */
+.card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(123,63,228,0.25);
+}
+
+/* ROOM IMAGE */
+.room-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  object-fit: fill;
+  margin-bottom: 0;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form input {
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  outline: none;
+  font-size: 15px;
+}
+
+.btn-premium {
+  background: linear-gradient(135deg, #7b3fe4, #a87bff);
+  padding: 14px;
+  color: white;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(123,63,228,0.35);
+}
+
+/* GLASS BOX */
+.glass-box {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #7b3fe4;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  animation: fadeUp 0.6s ease;
+}
+
+/* ANIMATIONS */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

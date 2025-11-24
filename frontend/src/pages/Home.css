@@ -1,0 +1,254 @@
+/* ============ GENERAL ============ */
+.home {
+  font-family: Arial, sans-serif;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 40px 0 20px;
+  color: #333;
+}
+
+/* ============ HERO SECTION ============ */
+.hero {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.hero-content {
+  text-align: center;
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero-btn {
+  background: #ff9800;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #e58800;
+}
+
+/* ============ SPECIALS SECTION ============ */
+.specials-section {
+  padding: 40px 20px;
+}
+
+.specials-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.special-card {
+  width: 280px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.special-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.special-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.special-card h3 {
+  font-size: 1.3rem;
+  margin: 10px 0;
+}
+
+/* ============ GALLERY SECTION ============ */
+.gallery-section {
+  padding: 40px 20px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gallery-container img {
+  width: 300px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.gallery-container img:hover {
+  transform: scale(1.05);
+}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials-section {
+  padding: 40px 20px;
+  background: #fafafa;
+}
+
+.testimonials-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  width: 260px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-style: italic;
+  position: relative;
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #444;
+  font-style: normal;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #eee;
+  margin-top: 40px;
+}
+
+/* ============ RESPONSIVE FIXES ============ */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .hero {
+    height: 60vh;
+  }
+  .special-card,
+  .gallery-container img,
+  .testimonial-card {
+    width: 90%;
+  }
+}
+
+/* ========================================================= */
+/* ===================== ADDED STYLES ======================= */
+/* ========================================================= */
+
+/* clickable wrapper around each image */
+.gallery-item {
+  cursor: pointer;
+  text-align: center;
+}
+.gallery-caption {
+  font-size: 0.95rem;
+  margin-top: 8px;
+  color: #444;
+}
+
+/* MODAL BACKDROP */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* MODAL BOX */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 80%;
+  max-height: 85%;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* MODAL IMAGE */
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* MODAL CAPTION */
+.modal-caption {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* CLOSE BUTTON */
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

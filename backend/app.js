@@ -4,6 +4,7 @@ import cors from "cors";
 import { errorMiddleware } from "./middlewares/error.js";
 import reservationRouter from "./routes/reservationRoute.js";
 import { dbConnection } from "./database/dbConnection.js";
+import bookingRoutes from "./routes/bookings.js";
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ✅ Routes
 app.use("/api/v1/reservation", reservationRouter);
+app.use("/api", bookingRoutes);
 
 // Test route
 app.get("/", (req, res) => {
