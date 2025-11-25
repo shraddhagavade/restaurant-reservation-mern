@@ -10,10 +10,14 @@ dotenv.config({ path: "./config/config.env" });
 
 const app = express();
 
-// ✅ Allow frontend (Vite) to call backend
+// ✅ CORS FIX FOR VERCEL + LOCALHOST
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "https://restaurant-reservation-mern-jade.vercel.app", // Your deployed frontend
+      "http://localhost:5173"                                 // Local dev
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
@@ -33,7 +37,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// ❗ Connect to DB only here (NOT in server.js)
+// ❗ DB connection
 dbConnection();
 
 // Error Middleware
